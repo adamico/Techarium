@@ -7,10 +7,15 @@ import java.util.function.Supplier;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.world.IBlockReader;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -32,6 +37,8 @@ import software.bernie.techarium.block.exchangestation.ExchangeStationBlock;
 import software.bernie.techarium.block.gravmagnet.GravMagnetBlock;
 import software.bernie.techarium.block.ladder.TechariumLadderBlock;
 import software.bernie.techarium.block.pipe.PipeBlock;
+import software.bernie.techarium.block.poweredfurnace.PoweredFurnaceMaster;
+import software.bernie.techarium.block.poweredfurnace.PoweredFurnaceTop;
 import software.bernie.techarium.block.voltaicpile.VoltaicPileBlock;
 import software.bernie.techarium.item.MachineItem;
 import software.bernie.techarium.item.TechariumBlockItem;
@@ -42,6 +49,7 @@ import software.bernie.techarium.tile.exchangestation.ExchangeStationTile;
 import software.bernie.techarium.tile.gravmagnet.GravMagnetTile;
 import software.bernie.techarium.tile.magneticcoils.MagneticCoilTile;
 import software.bernie.techarium.tile.pipe.PipeTile;
+import software.bernie.techarium.tile.poweredfurnace.PoweredFurnaceTile;
 import software.bernie.techarium.tile.slaves.TopEnabledOnlySlave;
 import software.bernie.techarium.tile.voltaicpile.VoltaicPileTile;
 import software.bernie.techarium.trait.item.ItemBehaviour;
@@ -100,6 +108,14 @@ public class BlockRegistry {
     public static final BlockRegistryObjectGroup<VoltaicPileBlock, BlockItem, VoltaicPileTile> VOLTAIC_PILE =
             new BlockRegistryObjectGroup<>("voltaic_pile", VoltaicPileBlock::new, techariumBlockItemCreator(ItemBehaviours.base), VoltaicPileTile::new).register(BLOCKS, ITEMS, TILES);
 
+    //Powered Furnace 
+    public static final BlockRegistryObjectGroup<PoweredFurnaceMaster, BlockItem, PoweredFurnaceTile> POWERED_FURNACE =
+            new BlockRegistryObjectGroup<>("powered_furnace", PoweredFurnaceMaster::new, machineItemCreator(ItemBehaviours.poweredfurnace), PoweredFurnaceTile::new).register(BLOCKS, ITEMS, TILES);
+    public static final RegistryObject<PoweredFurnaceTop> POWERED_FURNACE_TOP = BLOCKS.register("powered_furnace_top", PoweredFurnaceTop::new);
+    public static final RegistryObject<TileEntityType<TopEnabledOnlySlave>> POWERED_FURNACE_TILE = TILES.register("powered_furnace_top", () -> TileEntityType.Builder.of(TopEnabledOnlySlave::new,POWERED_FURNACE_TOP.get())
+            .build(null));
+    
+    
     // Ores + Blocks
     public static final RegistryObject<Block> ALUMINIUM_ORE = registerBlock("aluminium_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.IRON_ORE)));
     public static final RegistryObject<Block> COPPER_ORE = registerBlock("copper_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.IRON_ORE)));
@@ -114,6 +130,14 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BEAM = registerBlock("beam", BeamBlock::new);
     public static final RegistryObject<Block> ZINC_BLOCK = registerBlock("zinc_block", () -> new Block(AbstractBlock.Properties.copy(Blocks.IRON_BLOCK)));
 
+    public static final RegistryObject<Block> SCAFFOLDING = registerBlock("scaffolding", () -> new Block(AbstractBlock.Properties.copy(Blocks.IRON_BLOCK)) {
+    	@Override
+    	public VoxelShape getOcclusionShape(BlockState state, IBlockReader world, BlockPos pos) {
+    		return VoxelShapes.empty();
+    	}
+    });
+
+    
     public static final RegistryObject<Block> ALUMINIUM_PLATE_BLOCK = registerBlock("aluminium_plate_block",
             () -> new Block(AbstractBlock.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> COPPER_PLATE_BLOCK = registerBlock("copper_plate_block",
