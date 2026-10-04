@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "techarium:block/assembler"
+    },
+    "facing=south": {
+      "model": "techarium:block/assembler",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "techarium:block/assembler",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "techarium:block/assembler",
+      "y": 90
+    }
+  }
+}

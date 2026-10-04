@@ -1,0 +1,7 @@
+{
+  "parent": "techarium:block/default_box",
+  "textures": {
+    "1": "techarium:block/default_box_side",
+    "particle": "techarium:block/default_box_side"
+  }
+}
