@@ -1,13 +1,12 @@
 buildscript {
     repositories {
-        maven { url = 'https://sizableshrimp.me/maven' }
         maven { url = 'https://maven.minecraftforge.net' }
         maven { url='https://repo.spongepowered.org/repository/maven-public' }
         jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath group: 'me.sizableshrimp.parchmenttest', name: 'ForgeGradle', version: '4.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
         classpath 'com.github.jengelman.gradle.plugins:shadow:6.1.0'
         classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
     }
@@ -101,7 +100,6 @@ repositories {
         name = "Progwml6 maven"
         url = "https://dvs1.progwml6.com/files/maven/"
     }
-    maven { url "https://maven.tehnut.info" }
 
     maven {
         name 'tterrag maven'
@@ -148,12 +146,10 @@ dependencies {
     implementation fg.deobf("curse.maven:biomes-o-plenty-220318:${biomes_o_plenty_version}")
     implementation fg.deobf("curse.maven:ctm-267602:${ctm_version}")
 
-    implementation fg.deobf("com.teamcofh:CoFHCore:${cofh_core_version}")
+    implementation fg.deobf("curse.maven:cofh-core-69162:${cofh_core_version}")
     compileOnly fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:${immersive_engineering_version}")
 
-    // Compile against the Hwyla API, but run with full mod
-    compileOnly fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}:api")
-    runtimeOnly fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}")
+    implementation fg.deobf("curse.maven:hwyla-253449:${hwyla_version}")
 
     //lombok
     compileOnly "org.projectlombok:lombok:${lombok_version}"
