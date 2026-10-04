@@ -8,6 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import software.bernie.techarium.recipe.recipe.*;
 import software.bernie.techarium.recipe.serializer.*;
+import software.bernie.techarium.recipe.recipe.assembler.AssemblerRecipe;
 
 import static software.bernie.techarium.Techarium.MOD_ID;
 
@@ -32,6 +33,8 @@ public class RecipeRegistry {
     
     public static final RegistryObject<IRecipeSerializer<PoweredFurnaceRecipe>> POWERED_FURNACE_SERIALIZER =
             RECIPE_SERIALIZER_REGISTRY.register("powered_furnace", PoweredFurnaceRecipeSerializer::new);
+    public static final RegistryObject<IRecipeSerializer<AssemblerRecipe>> ASSEMBLER_SERIALIZER =
+            RECIPE_SERIALIZER_REGISTRY.register("assembler", AssemblerSerializer::new);
 
     public static IRecipeType<BotariumRecipe> BOTARIUM_RECIPE_TYPE = IRecipeType.register("techarium:botarium");
     public static IRecipeType<ArboretumRecipe> ARBORETUM_RECIPE_TYPE = IRecipeType.register("techarium:arboretum");
@@ -40,7 +43,8 @@ public class RecipeRegistry {
     public static IRecipeType<PoweredFurnaceRecipe> POWERED_FURNACE_RECIPE_TYPE = IRecipeType.register("techarium:powered_furnace");
 
     public static IRecipeType<ExchangeStationRecipe> EXCHANGE_STATION_RECIPE_TYPE = IRecipeType.register("techarium:exchange_station");
-
+    public static IRecipeType<AssemblerRecipe> ASSEMBLER_RECIPE_TYPE = IRecipeType.register("techarium:assembler");
+    
     public static void register(IEventBus bus) {
         RECIPE_SERIALIZER_REGISTRY.register(bus);
     }

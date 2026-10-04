@@ -24,6 +24,10 @@ public class GuiAddonTextures {
     //Arboretum Gui Background
     public static final IDrawable ARBORETUM_DRAWABLE = new UiTexture(Techarium.rl( "textures/gui/arboretum/arboretum.png"), 203, 184).getFullArea();
 
+    //Assembler Gui Background
+    public static final IDrawable ASSEMBLER_DRAWABLE = new UiTexture(Techarium.rl("textures/gui/assembler/assembler.png"), 201, 195).getFullArea();
+
+
 
     //Defaults
     public static final IDrawable DEFAULT_FLUID_TANK = BOTARIUM_COMPONENTS.getArea(new Vector2i(0, 50), new Vector2i(14, 50));

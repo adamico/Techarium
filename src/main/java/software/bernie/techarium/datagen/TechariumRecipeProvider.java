@@ -15,6 +15,7 @@ import software.bernie.techarium.Techarium;
 import software.bernie.techarium.datagen.base.TechariumRecipeProviderBase;
 import software.bernie.techarium.integration.ModIntegrations;
 import software.bernie.techarium.recipe.recipe.ExchangeStationRecipe;
+import software.bernie.techarium.recipe.recipe.assembler.AssemblerRecipePatern;
 import software.bernie.techarium.registry.BlockRegistry;
 import software.bernie.techarium.registry.ItemRegistry;
 import software.bernie.techarium.registry.TagRegistry;
@@ -35,6 +36,7 @@ public class TechariumRecipeProvider extends TechariumRecipeProviderBase {
         registerVanillaArboretumRecipes(consumer);
         registerGravMagnetRecipes(consumer);
         registerHammerRecipes(consumer);
+        registerAssemblerRecieps(consumer);
         registerSmeltingRecipes(consumer);
         registerCraftingRecipes(consumer);
         registerPoweredFurnaceRecipes(consumer);
@@ -293,6 +295,10 @@ public class TechariumRecipeProvider extends TechariumRecipeProviderBase {
         buildHammerPlateRecipe(TechariumTags.Items.INGOTS_LEAD, ItemRegistry.LEAD_PLATE.get(), consumer);
         buildHammerPlateRecipe(TechariumTags.Items.INGOTS_NICKEL, ItemRegistry.NICKEL_PLATE.get(), consumer);
         buildHammerPlateRecipe(TechariumTags.Items.INGOTS_ZINC, ItemRegistry.ZINC_PLATE.get(), consumer);
+    }
+    
+    private void registerAssemblerRecieps(Consumer<IFinishedRecipe> consumer) {
+
     }
 
     private void registerExchangeStationRecipes(Consumer<IFinishedRecipe> consumer) {

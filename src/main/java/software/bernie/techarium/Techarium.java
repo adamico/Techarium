@@ -1,5 +1,6 @@
 package software.bernie.techarium;
 
+import static software.bernie.techarium.registry.ContainerRegistry.ASSEMBLER_CONTAINER;
 import static software.bernie.techarium.registry.ContainerRegistry.AUTO_CONTAINER;
 import static software.bernie.techarium.registry.ContainerRegistry.EXCHANGE_STATION_CONTAINER;
 import static software.bernie.techarium.registry.ContainerRegistry.PIPE_CONTAINER;
@@ -28,6 +29,7 @@ import software.bernie.techarium.datagen.TechariumItemTagsProvider;
 import software.bernie.techarium.datagen.TechariumLangProvider;
 import software.bernie.techarium.datagen.TechariumLootTableProvider;
 import software.bernie.techarium.datagen.TechariumRecipeProvider;
+import software.bernie.techarium.display.screen.AssemblerContainerScreen;
 import software.bernie.techarium.display.screen.AutomaticContainerScreen;
 import software.bernie.techarium.display.screen.ExchangeStationScreen;
 import software.bernie.techarium.display.screen.PipeContainerScreen;
@@ -94,5 +96,6 @@ public class Techarium {
 		
 		RenderTypeLookup.setRenderLayer(BlockRegistry.ALUMINIUM_LADDER.get(), RenderType.cutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.SCAFFOLDING.get(), RenderType.cutout());
+		ScreenManager.register(ASSEMBLER_CONTAINER.get(), AssemblerContainerScreen::new);
 	}
 }

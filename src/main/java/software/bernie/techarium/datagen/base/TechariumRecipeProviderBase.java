@@ -25,6 +25,8 @@ import software.bernie.techarium.recipe.recipe.BotariumRecipe;
 import software.bernie.techarium.recipe.recipe.GravMagnetRecipe;
 import software.bernie.techarium.recipe.recipe.HammerRecipe;
 import software.bernie.techarium.recipe.recipe.PoweredFurnaceRecipe;
+import software.bernie.techarium.recipe.recipe.assembler.AssemblerRecipe;
+import software.bernie.techarium.recipe.recipe.assembler.AssemblerRecipePatern;
 import software.bernie.techarium.registry.TagRegistry;
 import software.bernie.techarium.util.loot.ChancedItemStackList;
 
@@ -133,6 +135,15 @@ public abstract class TechariumRecipeProviderBase extends ForgeRecipeProvider {
                 .pull(pull)
                 .construct()
                 .build(consumer, new ResourceLocation(Techarium.MOD_ID, "gravmagnet/" + name));
+    }
+    
+    public void buildAssemblerRecipe(String name, AssemblerRecipePatern patern, ItemStack output, boolean isShapeless, Consumer<IFinishedRecipe> consumer) {
+    	AssemblerRecipe.builder()
+    		.recipePatern(patern)
+        	.output(output)
+    		.isShapeless(isShapeless)
+    		.construct()
+    		.build(consumer, new ResourceLocation(Techarium.MOD_ID, "assembler/" + name));
     }
 
     public void buildMetalRecipe(String name, Item ingot, Item nugget, Block block, ITag<Item> ingotTag,

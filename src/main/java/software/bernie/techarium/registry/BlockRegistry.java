@@ -27,6 +27,7 @@ import software.bernie.techarium.block.TechButtonBlock;
 import software.bernie.techarium.block.TechLeverBlock;
 import software.bernie.techarium.block.arboretum.ArboretumMaster;
 import software.bernie.techarium.block.arboretum.ArboretumTop;
+import software.bernie.techarium.block.assembler.AssemblerBlock;
 import software.bernie.techarium.block.base.MachineBlock;
 import software.bernie.techarium.block.base.TechariumBlock;
 import software.bernie.techarium.block.botarium.BotariumMaster;
@@ -43,6 +44,7 @@ import software.bernie.techarium.block.voltaicpile.VoltaicPileBlock;
 import software.bernie.techarium.item.MachineItem;
 import software.bernie.techarium.item.TechariumBlockItem;
 import software.bernie.techarium.tile.arboretum.ArboretumTile;
+import software.bernie.techarium.tile.assembler.AssemblerTile;
 import software.bernie.techarium.tile.botarium.BotariumTile;
 import software.bernie.techarium.tile.depot.DepotTileEntity;
 import software.bernie.techarium.tile.exchangestation.ExchangeStationTile;
@@ -62,6 +64,12 @@ public class BlockRegistry {
             Techarium.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Techarium.MOD_ID);
 
+    // Assembler 
+  
+    public static final BlockRegistryObjectGroup<AssemblerBlock, BlockItem, AssemblerTile> ASSEMBLER =
+            new BlockRegistryObjectGroup<>("assembler", AssemblerBlock::new, machineItemCreator(ItemBehaviours.assembler), AssemblerTile::new).register(BLOCKS, ITEMS, TILES);
+    
+    
     // Exchange Station
 
     public static final BlockRegistryObjectGroup<ExchangeStationBlock, BlockItem, ExchangeStationTile> EXCHANGE_STATION =
@@ -178,6 +186,9 @@ public class BlockRegistry {
     
     public static final RegistryObject<Block> ALUMINIUM_LADDER = registerBlock("aluminium_ladder",
             () -> new TechariumLadderBlock(AbstractBlock.Properties.copy(Blocks.LADDER), 0.3f));
+
+    // Basic block
+    public static final RegistryObject<Block> BOX_BLOCK = registerBlock("box_block", () -> new Block(AbstractBlock.Properties.copy(Blocks.IRON_BLOCK)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> reg = BLOCKS.register(name, block);

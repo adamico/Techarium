@@ -4,6 +4,7 @@ import software.bernie.techarium.block.gravmagnet.GravMagnetBlock;
 import software.bernie.techarium.block.voltaicpile.VoltaicPileBlock;
 import software.bernie.techarium.registry.LangRegistry;
 import software.bernie.techarium.tile.arboretum.ArboretumTile;
+import software.bernie.techarium.tile.assembler.AssemblerTile;
 import software.bernie.techarium.tile.botarium.BotariumTile;
 import software.bernie.techarium.tile.depot.DepotTileEntity;
 import software.bernie.techarium.tile.exchangestation.ExchangeStationTile;
@@ -73,6 +74,14 @@ public class BlockBehaviours {
             .description(LangRegistry.poweredFurnaceDescription)
             .build();
 
+    public static BlockBehaviour assembler = new BlockBehaviour.Builder()
+            .composeFrom(BlockPartialBehaviours.partialMachineBlock)
+            .animatedModel()
+            .tileEntity(AssemblerTile.class)
+            .rotation(BlockTraits.RotationType.XZ)
+            .description(LangRegistry.assemblerDescription)
+            .build();
+    
     public static BlockBehaviour createSlave(BlockBehaviour masterBehaviour) {
         // copy the master block's material trait to the slave
         return masterBehaviour.getBaseTrait(BlockTraits.MaterialTrait.class).map(trait -> new BlockBehaviour.Builder()

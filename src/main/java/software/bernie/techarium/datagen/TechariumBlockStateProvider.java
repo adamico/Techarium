@@ -74,6 +74,7 @@ public class TechariumBlockStateProvider extends TechariumBlockStateProviderBase
         simpleBlockAndItem(BlockRegistry.ZINC_FACTORY_BLOCK.get());
 
         simpleAxisBlockAndItem(BlockRegistry.SCAFFOLDING.get());
+        existingBlock(BlockRegistry.BOX_BLOCK.get(), Techarium.rl("block/default_box"));
         
         simpleBlockItem(BlockRegistry.TECH_BUTTON.get(),
                 blockProvider.getExistingFile(Techarium.rl("block/tech_button_off")));

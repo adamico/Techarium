@@ -48,6 +48,8 @@ public class TechariumLangProvider extends TechariumLangProviderBase {
         addItem(ItemRegistry.LEAD_NUGGET, "Lead Nugget");
         addItem(ItemRegistry.NICKEL_NUGGET, "Nickel Nugget");
         addItem(ItemRegistry.ZINC_NUGGET, "Zinc Nugget");
+        
+        addItem(ItemRegistry.COPPER_COIL, "Copper Coil");
     }
 
     protected void addBlocks() {
@@ -64,6 +66,7 @@ public class TechariumLangProvider extends TechariumLangProviderBase {
 
         addBlock(BlockRegistry.VOLTAIC_PILE, "Voltaic Pile");
         addBlock(BlockRegistry.EXCHANGE_STATION, "Exchange Station");
+        addBlock(BlockRegistry.ASSEMBLER, "Assembler");
 
         addBlock(BlockRegistry.ALUMINIUM_ORE, "Aluminium Ore");
         addBlock(BlockRegistry.COPPER_ORE, "Copper Ore");
@@ -100,6 +103,8 @@ public class TechariumLangProvider extends TechariumLangProviderBase {
         addBlock(BlockRegistry.TECH_LEVER, "Lever");
         
         addBlock(BlockRegistry.ALUMINIUM_LADDER, "Aluminium Ladder");
+
+        addBlock(BlockRegistry.BOX_BLOCK, "BoxQD Block");
     }
 
     private void addTranslationComponents() {
@@ -119,6 +124,7 @@ public class TechariumLangProvider extends TechariumLangProviderBase {
         addTranslation(LangRegistry.magneticCoilDescription, "The Magnetic Coil is used to boost the Grav Magnet. Add a coil inside to boost the power");
         addTranslation(LangRegistry.depotDescription, "The Depot is used to create Plates and automate the GravMagnet Recipes.");
         addTranslation(LangRegistry.poweredFurnaceDescription, "The Powered Furnace is just a basic furnace, but with POWAH !");
+        addTranslation(LangRegistry.assemblerDescription, "The Assembler will allow you to craft every machine of Techarium. Can be used as a crafting table too");
         
     }
 }

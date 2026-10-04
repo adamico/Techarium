@@ -87,6 +87,8 @@ public class TechariumLootTableProvider extends LootTableProvider {
 			dropSelf(BlockRegistry.POWERED_FURNACE);
 			dropSelf(BlockRegistry.SCAFFOLDING);
 
+			dropSelf(BlockRegistry.ASSEMBLER);
+			dropSelf(BlockRegistry.BOX_BLOCK);
 			voltaicPileLootTable();
 		}
 
